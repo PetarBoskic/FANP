@@ -9,6 +9,8 @@
         public Gender Gender { get; set; }
         public ActivityLevel ActivityLevel { get; set; }
         public FitnessGoal Goal { get; set; }
+        
+        public TrainingType trainingType { get; set; }
 
         public LastTimeInShape LastTTimeInShape { get; set; }
         public double CalculatedBmr { get; set; }

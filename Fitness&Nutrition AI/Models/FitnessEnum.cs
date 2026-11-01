@@ -26,5 +26,11 @@
         MoreThanYearAgo,
         Never
     }
+    public enum TrainingType
+    {
+        Gym,
+        StreetWorkout,
+        HomeWorkout
+    }
 
 }
