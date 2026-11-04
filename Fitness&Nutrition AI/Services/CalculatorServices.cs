@@ -17,7 +17,7 @@ namespace Fitness_Nutrition_AI.Services
             }
             return bmr;
         }
-        public double CalculateTdee(ActivityLevel a, double bmr)
+        public double CalculateTdee(ActivityLevel a, double bmr,FitnessGoal goal)
         {
             double multi = a switch
             {
@@ -28,7 +28,17 @@ namespace Fitness_Nutrition_AI.Services
                 ActivityLevel.VeryActive => 1.9,
                 _ => 1.2
             };
-            return bmr * multi;
+            double tdee = bmr * multi;
+            return goal switch
+            {
+                FitnessGoal.Cut => tdee - 500,
+                FitnessGoal.MainTain => tdee,
+                FitnessGoal.Bulk => tdee + 300,
+                _ => tdee
+
+
+            };
         }
+        
     }
 }

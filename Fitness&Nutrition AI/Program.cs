@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<CalculatorServices>();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Registracija HttpClient-a i AI servisa u DI kontejneru
+builder.Services.AddHttpClient<IAIPlanGeneratorService, AIPlanGeneratorService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
